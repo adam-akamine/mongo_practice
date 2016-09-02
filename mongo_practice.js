@@ -259,4 +259,26 @@ db.posts.find(
 // 5. find all comments
 db.comments.find();
 // 6. find all comments that was authored by "GoodGuyGreg"
+db.comments.find(
+  {
+    "username": "GoodGuyGreg"
+  }
+);
+// 7. find all comments that was authorred by "ScumbagSteve"
+db.comments.find(
+  {
+    "username": "ScumbagSteve"
+  }
+);
+// 8. find all comments belonging to the post "Reports a bug in your code"
+var post = db.posts.findOne(
+  {
+    "title": "Reports a bug in your code"
+  }
+);
 
+db.comments.find(
+  {
+    "post": post._id
+  }
+);
